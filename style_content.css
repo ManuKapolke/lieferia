@@ -1,0 +1,368 @@
+/*-------------------------------------
+Shop
+--------------------------------------*/
+#main-content {
+    margin-top: 72px;
+    flex-grow: 1;
+}
+
+.shop-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+section:not(#shop) {
+    padding: 0 16px;
+}
+
+section#shop {
+    background-color: white;
+}
+
+.shop-header {
+    width: var(--content-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 28px 0 16px 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.pizza-pappa {
+    position: absolute;
+    top: -72px;
+    left: 4px;
+    width: 88px;
+    border-radius: 10px;
+    box-shadow: -2px 0px 6px 0px rgb(48, 48, 83, 0.5);
+}
+
+.shop-info h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-weight: 800;
+    font-size: 1.6em;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rating div {
+    display: flex;
+    align-items: center;
+}
+
+.rating img {
+    width: 16px;
+}
+
+.rating img:last-child {
+    margin-right: 8px;
+}
+
+.rating a {
+    font-size: 14px;
+
+    color: var(--font-color);
+}
+
+.rating a:hover {
+    text-decoration: none;
+}
+
+.info-and-heart {
+    width: 108px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-and-heart img {
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-gray-icons);
+}
+
+.info-and-heart img:hover {
+    background-color: var(--bg-gray-icons-hover);
+}
+
+.info-icons {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.info-icons div {
+    display: flex;
+    align-items: center;
+}
+
+.info-icons img {
+    width: 16px;
+}
+
+.info-icons span {
+    margin-left: 6px;
+    margin-right: 8px;
+}
+
+.info-icons span.bullet {
+    margin-right: 8px;
+    font-weight: 600;
+}
+
+#heart {
+    margin-left: 8px;
+}
+
+.green {
+    color: var(--font-green);
+}
+
+/*-------------------------------------
+Nav- / Search-Bar
+--------------------------------------*/
+#navbar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    box-shadow: -2px 4px 4px -4px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-content {
+    width: var(--content-width);
+    padding: 12px 0;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.navbar-content div {
+    width: 34px;
+    height: 34px;
+    padding: 16px;
+    margin-right: 16px;
+    cursor: pointer;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background-color: var(--bg-gray-icons);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-content img {
+    width: 18px;
+    height: 18px;
+}
+
+.navbar-content div:hover {
+    background-color: var(--bg-gray-icons-hover);
+}
+
+.navbar-content a {
+    padding: 8px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--font-color);
+    border-radius: 30px;
+    margin-right: 12px;
+}
+
+.navbar-content a:hover {
+    background-color: var(--bg-gray-icons);
+}
+
+.navbar-content a.active {
+    background-color: var(--bg-button);
+    color: white;
+}
+
+.navbar-content a.active:hover {
+    background-color: var(--bg-button-hover);
+}
+
+#search-bar-container {
+    position: absolute;
+    top: 26px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar {
+    width: var(--content-width);
+    position: absolute;
+}
+
+#search-input {
+    width: 100%;
+    height: 48;
+    padding: 12px 56px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 1px solid var(--font-color);
+    font-size: 15px;
+}
+
+#search-input:hover {
+    background-color: var(--bg-gray-icons);
+}
+
+#search-icon {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 13px;
+    left: 20px;
+}
+
+#search-close-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    cursor: pointer;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+}
+
+/*-------------------------------------
+Meals
+--------------------------------------*/
+.meals {
+    background-color: var(--bg-gray-meals-container);
+}
+
+.meals img {
+    width: var(--content-width);
+    height: 150px;
+    object-fit: cover;
+    object-position: 0 90%;
+    border-radius: 10px;
+    margin-top: 24px;
+}
+
+.meals h3 {
+    width: var(--content-width);
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-weight: 800;
+    font-size: 1.45em;
+    color: var(--font-category);
+}
+
+.meal {
+    width: var(--content-width);
+    border-radius: 10px;
+    border: 1.5px solid var(--bg-gray-icons-hover);
+    background-color: white;
+    margin: 16px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px 12px;
+    box-sizing: border-box;
+}
+
+.meal:hover {
+    background-color: var(--bg-gray-meal-hover);
+}
+
+h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 800;
+    font-size: 1.3em;
+}
+
+.ingredients {
+    margin: 12px 0;
+}
+
+.to-choose {
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.price {
+    margin-top: 24px;
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.plus-icon {
+    min-width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    background-color: var(--bg-gray-icons-hover);
+    color: var(--font-color);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.plus-icon svg {
+    stroke: var(--font-color);
+    stroke-width: 2;
+    border-radius: 100%;
+    background-color: var(--bg-gray-icons-hover);
+}
+
+/*-------------------------------------
+Impressum
+--------------------------------------*/
+.impressum {
+    padding-top: 24px !important;
+    padding-bottom: 60px !important;
+    background-color: var(--bg-gray-meals-container);
+}
+
+.impressum div {
+    width: var(--content-width);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.impressum h4 {
+    margin-bottom: 8px;
+}
+
+.impressum span {
+    padding-top: 8px;
+}

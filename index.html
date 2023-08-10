@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Pappa - Lieferia</title>
+
+    <link rel="shortcut icon" href="svg/restaurant-15.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_content.css">
+    <link rel="stylesheet" href="style_basket.css">
+    <link rel="stylesheet" href="style_media.css">
+</head>
+
+<body onload="includeHTML(); render();">
+
+    <header>
+        <a href="index.html" class="logo-and-title">
+            <div class="logo" w3-include-html="svg/restaurant-15.svg"></div>
+            <div class="title">Lieferia</div>
+        </a>
+        <h1>Speisekarte</h1>
+        <div class="menu-icons">
+            <img src="img/germany-ga830ebecb_640.png">
+            <svg height="44" width="44">
+                <line x1="12" y1="15" x2="32" y2="15" />
+                <line x1="12" y1="22" x2="32" y2="22" />
+                <line x1="12" y1="29" x2="32" y2="29" />
+                Sorry, your browser does not support inline SVG.
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <div id="main-content">
+
+            <section id="shop">
+                <img class="shop-image" src="img/vitalii-chernopyskyi-Oxb84ENcFfU-unsplash.jpg">
+                <div class="shop-header">
+                    <img class="pizza-pappa" src="img/pizza_chef.png">
+                    <div class="shop-info">
+                        <h2>Pizza Pappa</h2>
+                        <div class="rating">
+                            <div>
+                                <img src="img/star-2-32.png">
+                                <img src="img/star-2-32.png">
+                                <img src="img/star-2-32.png">
+                                <img src="img/star-2-32.png">
+                                <img src="img/star-5-32.png">
+                            </div>
+                            <a href="#">2.5k Bewertungen</a>
+                        </div>
+                        <div class="info-icons">
+                            <div>
+                                <img src="img/clock-8-32.png">
+                                <span> 30-55 min</span>
+                            </div>
+                            <div>
+                                <span class="bullet">&bull;</span>
+                                <img src="img/bicycle-32.png">
+                                <span class="green"> Kostenlos</span>
+                            </div>
+                            <div>
+                                <span class="bullet">&bull;</span>
+                                <img src="img/shopping-bag-32.png">
+                                <span> Min. 10,00 €</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-and-heart">
+                        <img src="img/info-2-32.png">
+                        <img id="heart" src="img/heart.png" onclick="toggleHeartIcon()">
+                    </div>
+                </div>
+            </section>
+
+            <section id="navbar">
+                <div class="navbar-content">
+                    <div><img src="img/search-13-48.png" onclick="openSearch()"></div>
+                    <a id="link-starters" href="#starters">Vorspeisen</a>
+                    <a id="link-salads" href="#salads">Salate</a>
+                    <a id="link-pizza" href="#pizza">Pizza</a>
+                    <a id="link-pasta" href="#pasta">Pasta</a>
+                </div>
+                <div id="search-bar-container" class="d-none">
+                    <div class="search-bar">
+                        <img id="search-icon" src="img/search-13-48.png">
+                        <input id="search-input" type="search" name="q" placeholder="Suche nach Gerichten, usw..."
+                            title="" onkeyup="search()" required>
+                        <img id="search-close-icon" src="img/x-mark-4-48.png" onclick="closeSearch()">
+                    </div>
+                </div>
+            </section>
+
+            <section id="starters" class="meals">
+                <img src="img/bruschetta-g24cc8d5db_640.jpg">
+                <h3>Vorspeisen</h3>
+            </section>
+
+            <section id="salads" class="meals">
+                <img src="img/salad-g7e661f26e_640.jpg">
+                <h3>Salate</h3>
+            </section>
+
+            <section id="pizza" class="meals">
+                <img src="img/pizza-g1fcf095cf_640.jpg">
+                <h3>Pizza</h3>
+            </section>
+
+            <section id="pasta" class="meals">
+                <img src="img/pasta-g191af449e_640.jpg">
+                <h3>Pasta</h3>
+            </section>
+
+            <section class="impressum">
+                <div>
+                    <h4>Impressum</h4>
+                    <span>Pizza Pappa</span>
+                    <span>Hertleinstr. 23</span>
+                    <span>91052 Erlangen</span>
+                    <span>Gesetzlicher Vertreter: Manu Kapolke</span>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="basket">
+            <h3>Warenkorb</h3>
+            <div id="basket-mobile-closing" onclick="closeBasket()">
+                <svg height="16" width="16">
+                    <line x1="0" y1="0" x2="16" y2="16" />
+                    <line x1="0" y1="16" x2="16" y2="0" />
+                    Sorry, your browser does not support inline SVG.
+                </svg>
+            </div>
+            <div id="basket-content"></div>
+            <div id="basket-total" class="hidden">
+                <div>
+                    <span>Zwischensumme</span>
+                    <span id="subtotal"></span>
+                </div>
+                <div>
+                    <span>Lieferkosten</span>
+                    <span>Kostenlos</span>
+                </div>
+                <div>
+                    <span><b>Gesamt</b></span>
+                    <span id="total"></span>
+                </div>
+                <button id="order-btn" type="submit" onclick="continueShopping()"></button>
+            </div>
+        </div>
+
+        <div id="basket-mobile-button" class="d-none">
+            <button id="open-basket-btn" onclick="openBasket()">
+                <div>
+                    <img src="img/shopping-basket-48.png">
+                    <div id="item-count"></div>
+                    <span> Warenkorb</span>
+                </div>
+            </button>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Ein Restaurant empfehlen</a>
+            <a href="#">Ein Restaurant anmelden</a>
+            <a href="#">Jobs</a>
+            <a href="#">AGB</a>
+            <a href="#">Datenschutzerklärung</a>
+            <a href="#">Impressum</a>
+            <a href="#">Verwendung von Cookies</a>
+            <a href="#">Bug Bounty</a>
+            <a href="#">Ethik-Hotline</a>
+        </div>
+        <div class="footer-copyright">© 2023 Lieferia</div>
+    </footer>
+
+    <script src="script_data.js"></script>
+    <script src="script_local-storage.js"></script>
+    <script src="script_main-content.js"></script>
+    <script src="script_basket.js"></script>
+    <script src="script_search.js"></script>
+    <script src="script_show-hide.js"></script>
+</body>
+
+</html>
