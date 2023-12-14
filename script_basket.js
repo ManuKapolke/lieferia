@@ -65,8 +65,10 @@ function renderBasketContent() {
         renderBasketItem(idxAddedToBasket[i]);
     }
 
-    if (getOrderGap() > 0)
-        content.innerHTML += renderMinOrderValue(getOrderGap());
+    if (getOrderGap() > 0) {
+        const orderGapElement = createOrderGapElement(getOrderGap());
+        content.appendChild(orderGapElement);
+    }
 }
 
 
@@ -146,6 +148,13 @@ function setOnclickForPlusMinus(index) {
 }
 
 
+function createOrderGapElement(orderGap) {
+    const orderGapElement = document.createElement('order-gap-msg');
+    orderGapElement.innerHTML = renderMinOrderValue(orderGap);
+    return orderGapElement;
+}
+
+
 function renderMinOrderValue(orderGap) {
     return `
             <div class="min-order-value">
@@ -182,7 +191,7 @@ function setOrderButton() {
     const total = getPriceAsString(calculateTotal());
     document.getElementById('order-btn').innerHTML = `Bezahlen (${total} €)`;
 
-    if (MIN_ORDER_VALUE - calculateTotal() > 0) {
+    if (getOrderGap() > 0) {
         deactivateOrderButton();
         if (window.innerWidth <= 1024) {
             document.getElementById('order-btn').innerHTML = 'Weitere Produkte hinzufügen';
@@ -227,7 +236,7 @@ function closeBasket() {
 
 
 function continueShopping() {
-    if (MIN_ORDER_VALUE - calculateTotal() > 0 && window.innerWidth <= 1024)
+    if (getOrderGap() > 0 && window.innerWidth <= 1024)
         closeBasket();
 }
 
